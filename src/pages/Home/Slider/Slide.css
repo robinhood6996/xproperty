@@ -1,0 +1,5 @@
+.slide{
+    background-image: url('../../../images/slider/slide1.jpg');
+    background-repeat: no-repeat;
+    min-height:650px;
+}
