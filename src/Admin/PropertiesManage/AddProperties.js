@@ -4,7 +4,7 @@ import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
 import Button from '@material-tailwind/react/Button';
 import { useForm } from "react-hook-form";
-import Sidebar from '../Home/Home/Sidebar';
+// import Sidebar from '../Home/Home/Sidebar';
 import axios from 'axios';
 
 
@@ -22,7 +22,7 @@ const AddProperties = () => {
     };
     return (
         <>
-            <Sidebar></Sidebar>
+            {/* <Sidebar></Sidebar> */}
             <Card className=" lg:p-48 lg:ml-40">
                 <CardHeader color="purple" contentPosition="none">
                     <div className="w-full flex items-center justify-between">

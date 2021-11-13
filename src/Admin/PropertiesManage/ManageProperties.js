@@ -36,7 +36,7 @@ const ManageProperties = () => {
     }
     return (
         <>
-            <Sidebar></Sidebar>
+            {/* <Sidebar></Sidebar> */}
             <Card className="lg:p-48 lg:ml-40">
                 <CardHeader color="purple" contentPosition="left">
                     <h2 className="text-white text-2xl">Property List</h2>

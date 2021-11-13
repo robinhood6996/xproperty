@@ -4,12 +4,13 @@ import { useForm } from "react-hook-form";
 import useAuth from '../../../Hooks/useAuth';
 const Reviews = () => {
     const { user } = useAuth();
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         axios.post('http://localhost:6010/add-review', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Submited your review about us');
+                    reset();
                 }
             })
     };

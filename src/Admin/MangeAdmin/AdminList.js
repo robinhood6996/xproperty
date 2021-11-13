@@ -4,12 +4,12 @@ import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
 import Image from '@material-tailwind/react/Image';
 import img from '../../images/logo.png';
-import Sidebar from '../Home/Home/Sidebar';
+
 
 const AdminList = () => {
     return (
         <>
-            <Sidebar></Sidebar>
+
             <Card className="lg:p-48 lg:ml-40">
                 <CardHeader color="purple" contentPosition="left">
                     <h2 className="text-white text-2xl">Admin List</h2>

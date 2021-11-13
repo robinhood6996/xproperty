@@ -25,7 +25,7 @@ const AllProperties = () => {
         history.push(url);
     }
     return (
-        <div className="container mx-auto my-3">
+        <div className="container mx-auto my-3 p-2">
             <div className="properties">
                 <div className="properties-header text-center my-3">
                     <h2 className="text-4xl font-bold text-blue-400">Properties For Sale</h2>
@@ -53,10 +53,10 @@ const AllProperties = () => {
                                 </p>
                                 <div class="flex justify-start space-x-6 mt-2">
                                     <h4 className="text-2xl font-bold text-blue-400 ">Buy At: ${property.price}</h4>
-                                    <Link to="/property">
-                                        <button className="bg-blue-400 text-gray-50 font-bold px-4 py-2 rounded"
-                                            onClick={() => handleSingleProperty(property._id)}>Buy Now</button>
-                                    </Link>
+
+                                    <button className="bg-blue-400 text-gray-50 font-bold px-4 py-2 rounded"
+                                        onClick={() => handleSingleProperty(property._id)}>Buy Now</button>
+
                                 </div>
                             </div>
                         </div>)

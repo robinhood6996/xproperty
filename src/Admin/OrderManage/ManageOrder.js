@@ -9,7 +9,7 @@ import Sidebar from '../Home/Home/Sidebar';
 const ManageOrder = () => {
     return (
         <>
-            <Sidebar></Sidebar>
+            {/* <Sidebar></Sidebar> */}
             <Card className="lg:p-48 lg:ml-40">
                 <CardHeader color="purple" contentPosition="left">
                     <h2 className="text-white text-2xl">Order List</h2>
