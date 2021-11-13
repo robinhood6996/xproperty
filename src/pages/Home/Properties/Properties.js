@@ -5,7 +5,7 @@ import {
 
 } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBath, faBed, faCar, faCity, faLocationArrow, faTh } from '@fortawesome/free-solid-svg-icons'
+import { faLocationArrow, faTh } from '@fortawesome/free-solid-svg-icons'
 
 import axios from 'axios';
 const Properties = () => {
@@ -34,7 +34,7 @@ const Properties = () => {
                 <div className="grid sm:grid-cols-1 lg:grid-cols-4 gap-4">
                     {/* Property  */}
                     {
-                        properties.map(property => <div class="w-full bg-gray-800 rounded-lg sahdow-lg overflow-hidden " key={property._id}>
+                        properties.slice(0, 8).map(property => <div class="w-full bg-gray-800 rounded-lg sahdow-lg overflow-hidden " key={property._id}>
                             <div class="w-full md:w-5/5 h-80">
                                 <img className="object-center object-cover w-full h-full" src={property.image} alt="img" />
                             </div>
@@ -50,7 +50,7 @@ const Properties = () => {
                                 <div class="flex justify-start space-x-6 mt-2">
                                     <h4 className="text-xl font-bold text-blue-400 ">Buy At: ${property.price}</h4>
 
-                                    <button onClick={() => handleSingleProperty(property._id)} className="bg-blue-400 text-gray-50 font-medium px-4 py-2 px-4 rounded">Buy Now</button>
+                                    <button onClick={() => handleSingleProperty(property._id)} className="bg-blue-400 text-gray-50 font-medium px-4 py-2 rounded">Buy Now</button>
 
                                 </div>
                             </div>

@@ -98,30 +98,12 @@ function App() {
               <Pay></Pay>
               <Footer></Footer>
             </PrivateRoute>
-            <PrivateRoute exact path="/admin">
+            <PrivateRoute path="/admin">
               <AdminDashboard></AdminDashboard>
             </PrivateRoute>
             <PrivateRoute path="/addproperty">
               <AddProperties></AddProperties>
             </PrivateRoute>
-            {/* <Route path="/admin/login">
-              <AdminLogin></AdminLogin>
-            </Route>
-            <PrivateRoute path="admin/addproperty">
-              <AddProperties></AddProperties>
-            </PrivateRoute>
-            <PrivateRoute path="admin/manage-property">
-              <ManageProperties></ManageProperties>
-            </PrivateRoute>
-            <PrivateRoute path="admin/manage-orders">
-              <ManageOrder></ManageOrder>
-            </PrivateRoute>
-            <PrivateRoute path="admin/manage-admin">
-              <ManageAdmin></ManageAdmin>
-            </PrivateRoute>
-            <PrivateRoute path="admin/admin-list">
-              <AdminList></AdminList>
-            </PrivateRoute> */}
 
           </Switch>
 

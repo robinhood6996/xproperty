@@ -4,6 +4,8 @@ import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import axios from 'axios';
+import Rating from 'react-rating';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 // import 'swiper/components/navigation/navigation.scss'
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
@@ -37,6 +39,8 @@ const Reviews = () => {
                                 <div className="details text-center">
                                     <h2 className="text-3xl my-2 font-semibold">{review.title}</h2>
                                     <p className="text-lg">{review.details}</p>
+                                    <h2> <Rating initialRating={review.review} emptySymbol="far fa-star text-yellow-500" fullSymbol="fas fa-star text-yellow-500" />
+                                    </h2>
                                     <h2 className="text-xl text-blue-400">-{review.name}</h2>
                                 </div>
                             </div>

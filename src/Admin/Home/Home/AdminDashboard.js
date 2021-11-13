@@ -1,49 +1,35 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React, { useState } from 'react';
-import { useHistory } from 'react-router';
-import useAuth from '../../../Hooks/useAuth';
-
-
-import {
-    Switch,
-    Route,
-    Link,
-    useRouteMatch,
-    NavLink
-} from "react-router-dom";
+// import useAuth from '../../../Hooks/useAuth';
+import { Switch, Route, Link, useRouteMatch, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartLine, faEye, faFolder, faFolderPlus, faTasks, faUserShield } from '@fortawesome/free-solid-svg-icons';
-
+import { faChartLine, faCross, faEye, faFolder, faFolderPlus, faSignOutAlt, faTasks, faUsers, faUserShield } from '@fortawesome/free-solid-svg-icons';
 import AdminList from '../../MangeAdmin/AdminList';
 import AddProperties from '../../PropertiesManage/AddProperties';
 import ManageProperties from '../../PropertiesManage/ManageProperties';
+import ManageOrder from '../../OrderManage/ManageOrder';
+import ManageAdmin from '../../MangeAdmin/ManageAdmin';
+import AdminHome from './AdminHome';
+import useAuth from '../../../Hooks/useAuth';
 
 const AdminDashboard = () => {
     const [showSidebar, setShowSidebar] = useState('-left-64');
-
+    const { handleLogout } = useAuth();
     let { path, url } = useRouteMatch();
 
-    const { user } = useAuth();
+    // const { user } = useAuth();
 
-    const history = useHistory();
+    // const [admin, setAdmin] = useState();
 
-    const [admin, setAdmin] = useState();
-
-    if (user) {
-        axios.get(`http://localhost:6010/users/${user?.email}`)
-            .then(res => {
-                setAdmin(res.data.admin);
-            })
-    }
-    // if (admin === false) {
-    //     history.push('/home');
+    // if (user) {
+    //     axios.get(`http://localhost:6010/users/${user?.email}`)
+    //         .then(res => {
+    //             setAdmin(res.data.admin);
+    //         })
     // }
+
     return (
         <>
-            {/* <AdminHome
-                showSidebar={showSidebar}
-                setShowSidebar={setShowSidebar}
-            /> */}
             <div
                 className={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-white w-64 z-10 py-4 px-6 transition-all duration-300`}
             >
@@ -102,7 +88,7 @@ const AdminDashboard = () => {
 
                             <li className="rounded-lg mb-2 text-gray-700">
                                 <NavLink
-                                    to={`${url}/manage-admin`}
+                                    to={`${url}/make-admin`}
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                 >
@@ -110,16 +96,16 @@ const AdminDashboard = () => {
                                     Add Admin
                                 </NavLink>
                             </li>
-                            {/* <li className="rounded-lg mb-2 text-gray-700">
-                                <NavLink
-                                    to="/admin-list"
+                            <li className="rounded-lg mb-2 text-gray-700">
+                                {/* <NavLink
+                                    to={`${url}/manage-admin`}
                                     className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
                                     activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
                                 >
                                     <FontAwesomeIcon icon={faUsers} />
                                     Admin Lists
-                                </NavLink>
-                            </li> */}
+                                </NavLink> */}
+                            </li>
                             <li className="rounded-lg mb-2 text-gray-700">
                                 <NavLink
                                     to="/home"
@@ -130,6 +116,16 @@ const AdminDashboard = () => {
                                     Visit Site
                                 </NavLink>
                             </li>
+                            <li className="rounded-lg mb-2 text-gray-700">
+                                <btn
+                                    onClick={handleLogout}
+                                    className="flex items-center gap-4 text-sm text-red-700 font-light px-4 py-3 rounded-lg cursor-pointer"
+                                    activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
+                                >
+                                    <FontAwesomeIcon icon={faSignOutAlt} />
+                                    Logout
+                                </btn>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -137,13 +133,45 @@ const AdminDashboard = () => {
 
             <Switch>
                 <Route exact path={path}>
-                    <AdminList />
+                    <AdminHome
+                        showSidebar={showSidebar}
+                        setShowSidebar={setShowSidebar}
+                    ></AdminHome>
                 </Route>
                 <Route path={`${path}/addproperty`}>
+                    <AdminHome
+                        showSidebar={showSidebar}
+                        setShowSidebar={setShowSidebar}
+                    ></AdminHome>
                     <AddProperties />
                 </Route>
                 <Route path={`${path}/manage-property`}>
+                    <AdminHome
+                        showSidebar={showSidebar}
+                        setShowSidebar={setShowSidebar}
+                    ></AdminHome>
                     <ManageProperties />
+                </Route>
+                <Route path={`${path}/manage-orders`}>
+                    <AdminHome
+                        showSidebar={showSidebar}
+                        setShowSidebar={setShowSidebar}
+                    ></AdminHome>
+                    <ManageOrder></ManageOrder>
+                </Route>
+                <Route path={`${path}/make-admin`}>
+                    <AdminHome
+                        showSidebar={showSidebar}
+                        setShowSidebar={setShowSidebar}
+                    ></AdminHome>
+                    <ManageAdmin></ManageAdmin>
+                </Route>
+                <Route path={`${path}/manage-admin`}>
+                    <AdminHome
+                        showSidebar={showSidebar}
+                        setShowSidebar={setShowSidebar}
+                    ></AdminHome>
+                    <AdminList></AdminList>
                 </Route>
             </Switch>
         </>

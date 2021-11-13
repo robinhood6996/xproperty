@@ -77,15 +77,10 @@ const Header = () => {
                                     Career
                                 </Link>
                             </li>
+
                             {
-                                user && admin === true ? <li className="nav-item">
-                                    <Link to="/admin"
-                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                                        href="#pablo"
-                                    >
-                                        Dashboard
-                                    </Link>
-                                </li> :
+                                user?.email ?
+
                                     <li className="nav-item">
                                         <Link to="/profile"
                                             className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
@@ -93,18 +88,14 @@ const Header = () => {
                                         >
                                             Profile
                                         </Link>
-                                    </li>
-                            }
-                            {
-                                user?.email ?
-                                    <li className="nav-item">
-                                        <Link to="/login"
-                                            className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-red-600 hover:opacity-75"
-                                            href="#pablo" onClick={handleLogout}
+                                        <btn
+                                            className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-red-600 hover:opacity-75 cursor-pointer"
+                                            onClick={handleLogout}
                                         >
                                             Logout
-                                        </Link>
-                                    </li> :
+                                        </btn>
+                                    </li>
+                                    :
                                     <li className="nav-item">
                                         <Link to="/login"
                                             className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
@@ -113,6 +104,17 @@ const Header = () => {
                                             Login
                                         </Link>
                                     </li>
+
+                            }
+                            {
+                                user && admin === true && <li className="nav-item">
+                                    <Link to="/admin"
+                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                        href="#pablo"
+                                    >
+                                        Dashboard
+                                    </Link>
+                                </li>
 
                             }
                             {

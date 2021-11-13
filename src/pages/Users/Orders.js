@@ -52,7 +52,7 @@ const Orders = () => {
                     <tbody class="divide-y divide-gray-200">
 
                         {
-                            queries.map(query => <tr key={query._id}>
+                            queries.length == 0 ? <h2 className="text-center text-4xl text-red-600">You have no order</h2> : queries.map(query => <tr key={query._id}>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center space-x-3">
 
@@ -76,6 +76,9 @@ const Orders = () => {
                                     <button href="#" class="bg-red-600 px-2 py-2 font-bold rounded-lg text-white" onClick={() => handleDelete(query._id)}><FontAwesomeIcon icon={faTimes} /> Delete</button>
                                 </td>
                             </tr>)
+                        }
+                        {
+
                         }
                     </tbody>
                 </table>

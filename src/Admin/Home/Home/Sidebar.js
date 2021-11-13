@@ -1,22 +1,14 @@
-import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-// import AdminNavbar from './AdminNavbar';
-
 import H6 from '@material-tailwind/react/Heading6';
-import AdminHome from './AdminHome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartLine, faEye, faFolder, faFolderPlus, faTasks, faUsers, faUserShield } from '@fortawesome/free-solid-svg-icons';
 
 const Sidebar = () => {
-    const [showSidebar, setShowSidebar] = useState('-left-64');
+
     return (
         <>
-            <AdminHome
-                showSidebar={showSidebar}
-                setShowSidebar={setShowSidebar}
-            />
             <div
-                className={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-white w-64 z-10 py-4 px-6 transition-all duration-300`}
+                className={`h-screen fixed top-0 md:left-0  overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-xl bg-white w-64 z-10 py-4 px-6 transition-all duration-300`}
             >
                 <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
 

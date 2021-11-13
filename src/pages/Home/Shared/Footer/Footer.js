@@ -32,11 +32,11 @@ const Footer = () => {
                     <h2 className="text-xl font-bold text-white border-l-2 border-blue-400  p-2">Get in touch</h2>
                     <div className="get-area1 mt-10">
                         <h2 className="text-white font-semibold">Need Help?</h2>
-                        <h2 className="text-white font-semibold text-blue-400">(406) 555-0120</h2>
+                        <h2 className="font-semibold text-blue-400">(406) 555-0120</h2>
                     </div>
                     <div className="get-area1 mt-5">
                         <h2 className="text-white font-semibold">Email Us At:</h2>
-                        <h2 className="text-white font-semibold text-blue-400">service.xproperty@xproperty.com</h2>
+                        <h2 className="font-semibold text-blue-400">service.xproperty@xproperty.com</h2>
                     </div>
                 </div>
             </div>
