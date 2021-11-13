@@ -10,7 +10,7 @@ const ManageOrder = () => {
     const [queries, setQuery] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:6010/all-orders`)
+        axios.get(`https://immense-island-65259.herokuapp.com/all-orders`)
             .then(res => {
                 console.log(res.data)
                 setQuery(res.data);
@@ -20,7 +20,7 @@ const ManageOrder = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure you want to Cancel this Query?');
         if (confirm) {
-            axios.delete(`http://localhost:6010/order/${id}`)
+            axios.delete(`https://immense-island-65259.herokuapp.com/order/${id}`)
                 .then(res => {
                     if (res.data.deletedCount == 1) {
                         const allQueries = queries;
@@ -39,7 +39,7 @@ const ManageOrder = () => {
     const handleStatus = (id, status) => {
         const confirm = window.confirm('Are you sure to change this status');
         if (confirm) {
-            axios.put(`http://localhost:6010/order-status/${id}`, {
+            axios.put(`https://immense-island-65259.herokuapp.com/order-status/${id}`, {
                 status: status
             })
                 .then(res => {

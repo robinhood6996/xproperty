@@ -13,7 +13,7 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:6010/reviews')
+        axios.get('https://immense-island-65259.herokuapp.com/reviews')
             .then(res => setReviews(res.data))
             .catch(error => console.log(error.message))
     }, [])

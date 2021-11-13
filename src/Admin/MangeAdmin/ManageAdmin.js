@@ -12,7 +12,7 @@ const ManageAdmin = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         const user = { email: data.email };
-        axios.put('http://localhost:6010/user/admin', user)
+        axios.put('https://immense-island-65259.herokuapp.com/user/admin', user)
             .then(res => {
                 alert('Made an admin sucessfully');
             })

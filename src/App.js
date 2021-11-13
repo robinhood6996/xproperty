@@ -28,6 +28,7 @@ import Footer from './pages/Home/Shared/Footer/Footer';
 import About from './pages/About/About';
 import Career from './pages/Career/Career';
 import AddProperties from './Admin/PropertiesManage/AddProperties';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -104,6 +105,11 @@ function App() {
             <PrivateRoute path="/addproperty">
               <AddProperties></AddProperties>
             </PrivateRoute>
+            <Route exact path="*">
+              <Header />
+              <NotFound></NotFound>
+              <Footer />
+            </Route>
 
           </Switch>
 

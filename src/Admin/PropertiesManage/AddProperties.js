@@ -11,7 +11,7 @@ import axios from 'axios';
 const AddProperties = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:6010/property', data)
+        axios.post('https://immense-island-65259.herokuapp.com/property', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Sucessfully added');

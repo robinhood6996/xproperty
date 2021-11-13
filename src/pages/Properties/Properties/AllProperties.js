@@ -3,9 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import p1 from '../../../images/properties/1.jpg';
-import p2 from '../../../images/properties/2.jpg';
-import p3 from '../../../images/properties/3.jpg';
 
 const AllProperties = () => {
     const history = useHistory();
@@ -13,7 +10,7 @@ const AllProperties = () => {
     const [properties, setProperties] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:6010/properties')
+        axios.get('https://immense-island-65259.herokuapp.com/properties')
             .then(res => {
                 console.log(res.data)
                 setProperties(res.data);

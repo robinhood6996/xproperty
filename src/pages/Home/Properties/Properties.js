@@ -14,7 +14,7 @@ const Properties = () => {
     const [properties, setProperties] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:6010/properties')
+        axios.get('https://immense-island-65259.herokuapp.com/properties')
             .then(res => {
                 console.log(res.data)
                 setProperties(res.data);

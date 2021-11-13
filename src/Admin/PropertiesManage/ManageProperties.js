@@ -10,7 +10,7 @@ import axios from 'axios';
 const ManageProperties = () => {
     const [properties, setProperties] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:6010/properties')
+        axios.get('https://immense-island-65259.herokuapp.com/properties')
             .then(res => {
                 console.log(res.data)
                 setProperties(res.data);
@@ -20,7 +20,7 @@ const ManageProperties = () => {
     const handleDelete = (id) => {
         const confirm = window.confirm('Are you sure to delete?')
         if (confirm) {
-            axios.delete(`http://localhost:6010/properties/${id}`)
+            axios.delete(`https://immense-island-65259.herokuapp.com/properties/${id}`)
                 .then(res => {
 
                     if (res.data.deletedCount == 1) {

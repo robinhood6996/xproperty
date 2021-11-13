@@ -6,7 +6,7 @@ const Reviews = () => {
     const { user } = useAuth();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:6010/add-review', data)
+        axios.post('https://immense-island-65259.herokuapp.com/add-review', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Submited your review about us');

@@ -1,11 +1,11 @@
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAXaCuAOdVaXXDwzhjOcmW2wqDZuXJ9qc4",
-    authDomain: "xproperty-b4d34.firebaseapp.com",
-    projectId: "xproperty-b4d34",
-    storageBucket: "xproperty-b4d34.appspot.com",
-    messagingSenderId: "312005440351",
-    appId: "1:312005440351:web:6f763cde8220959812bcea"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDERID,
+    appId: process.env.REACT_APP_APP_ID
 };
 
 export default firebaseConfig

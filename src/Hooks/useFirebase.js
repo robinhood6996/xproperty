@@ -81,10 +81,10 @@ const useFirebase = () => {
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
         if (method === 'POST') {
-            axios.post('http://localhost:6010/users', user)
+            axios.post('https://immense-island-65259.herokuapp.com/users', user)
                 .then()
         } else if (method === 'PUT') {
-            axios.put('http://localhost:6010/users', user)
+            axios.put('https://immense-island-65259.herokuapp.com/users', user)
                 .then()
         }
     }

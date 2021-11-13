@@ -12,7 +12,7 @@ const Header = () => {
         return '';
     }
     if (user) {
-        axios.get(`http://localhost:6010/users/${user?.email}`)
+        axios.get(`https://immense-island-65259.herokuapp.com/users/${user?.email}`)
             .then(res => {
                 setAdmin(res.data.admin);
             })

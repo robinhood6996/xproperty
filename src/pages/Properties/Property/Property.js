@@ -12,7 +12,7 @@ const Property = () => {
     const [property, setProperty] = useState({});
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:6010/place-order', data)
+        axios.post('https://immense-island-65259.herokuapp.com/place-order', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Submited a query');
@@ -22,7 +22,7 @@ const Property = () => {
     };
 
     useEffect(() => {
-        axios.get(`http://localhost:6010/property/${id}`)
+        axios.get(`https://immense-island-65259.herokuapp.com/property/${id}`)
             .then(res => {
                 setProperty(res.data);
                 console.log(res.data);
