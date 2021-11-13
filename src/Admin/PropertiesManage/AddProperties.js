@@ -5,10 +5,21 @@ import CardBody from '@material-tailwind/react/CardBody';
 import Button from '@material-tailwind/react/Button';
 import { useForm } from "react-hook-form";
 import Sidebar from '../Home/Home/Sidebar';
+import axios from 'axios';
+
 
 const AddProperties = () => {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit, reset } = useForm();
+    const onSubmit = data => {
+        axios.post('http://localhost:6010/property', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    alert('Sucessfully added');
+                    reset();
+                }
+
+            })
+    };
     return (
         <>
             <Sidebar></Sidebar>
@@ -33,6 +44,7 @@ const AddProperties = () => {
                         </h6>
                         <div className="flex flex-wrap mt-10">
                             <div className="w-full lg:w-6/12 pr-4 mb-10 font-light">
+                                <label htmlFor="name">Name</label>
                                 <input
                                     type="text"
                                     color="purple"
@@ -41,7 +53,9 @@ const AddProperties = () => {
                                     {...register("name", { required: true })}
                                 />
                             </div>
+
                             <div className="w-full lg:w-6/12  mb-10 font-light">
+                                <label htmlFor="sqt">Total size in square feet</label>
                                 <input
                                     type="text"
                                     color="purple"
@@ -51,6 +65,7 @@ const AddProperties = () => {
                                 />
                             </div>
                             <div className="w-full lg:w-6/12 pr-4 mb-10 font-light">
+                                <label htmlFor="bed">Total Bed Room In Apartments</label>
                                 <input
                                     type="text"
                                     color="purple"
@@ -60,6 +75,7 @@ const AddProperties = () => {
                                 />
                             </div>
                             <div className="w-full lg:w-6/12  mb-10 font-light">
+                                <label htmlFor="bed">Total Bath In Apartments</label>
                                 <input
                                     className="w-full lg:w-12/12 mb-10 font-light border-2 py-2 px-2 rounded shadow-xs"
                                     type="text"
@@ -69,6 +85,7 @@ const AddProperties = () => {
                                 />
                             </div>
                             <div className="w-full lg:w-6/12 pr-4 mb-10 font-light">
+                                <label htmlFor="bed">Floor Number</label>
                                 <input
                                     type="text"
                                     className="w-full lg:w-12/12 mb-10 font-light border-2 py-2 px-2 rounded shadow-xs"
@@ -78,6 +95,7 @@ const AddProperties = () => {
                                 />
                             </div>
                             <div className="w-full lg:w-6/12  mb-10 font-light">
+                                <label htmlFor="bed">Garage Capacity</label>
                                 <input
                                     type="text"
                                     className="w-full lg:w-12/12 mb-10 font-light border-2 py-2 px-2 rounded shadow-xs"
@@ -87,6 +105,7 @@ const AddProperties = () => {
                                 />
                             </div>
                             <div className="w-full lg:w-6/12 pr-4 mb-10 font-light">
+                                <label htmlFor="bed">Type of Apartment</label>
                                 <input
                                     type="text"
                                     className="w-full lg:w-12/12 mb-10 font-light border-2 py-2 px-2 rounded shadow-xs"
@@ -96,6 +115,7 @@ const AddProperties = () => {
                                 />
                             </div>
                             <div className="w-full lg:w-6/12  mb-10 font-light">
+                                <label htmlFor="bed">Builders Name</label>
                                 <input
                                     type="text"
                                     color="purple"
@@ -105,6 +125,7 @@ const AddProperties = () => {
                                 />
                             </div>
                             <div className="w-full lg:w-12/12 mb-10 font-light">
+                                <label htmlFor="bed">Location of Apartment</label>
                                 <input
                                     type="text"
                                     color="purple"
@@ -113,17 +134,29 @@ const AddProperties = () => {
                                     {...register("location", { required: true })}
                                 />
                             </div>
+                            <div className="w-full lg:w-6/12 mb-10 font-light">
+                                <label htmlFor="bed">Price of Apartment</label>
+                                <input
+                                    type="text"
+                                    color="purple"
+                                    placeholder="Location"
+                                    className="w-full lg:w-12/12 mb-10 font-light border-2 py-2 px-2 rounded shadow-xs"
+                                    {...register("price", { required: true })}
+                                />
+                            </div>
                         </div>
 
                         <h6 className="text-purple-500 text-sm my-6 font-light uppercase">
                             More Details
                         </h6>
                         <div className="flex flex-wrap mt-10 font-light">
+                            <label htmlFor="bed">Details About Apartment</label>
                             <textarea color="purple" placeholder="Details About Property" {...register("details", { required: true })}
                                 className="w-full lg:w-12/12 mb-10 font-light border-2 py-2 px-2 rounded shadow-xs" />
                         </div>
                         <div className="flex flex-wrap mt-10">
                             <div className="w-full lg:w-12/12 mb-10 font-light">
+                                <label htmlFor="bed">Apartment image link</label>
                                 <input
                                     type="text"
                                     color="purple"

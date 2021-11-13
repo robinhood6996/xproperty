@@ -6,10 +6,17 @@ import Button from '@material-tailwind/react/Button';
 import { useForm } from "react-hook-form";
 import Sidebar from '../Home/Home/Sidebar';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const ManageAdmin = () => {
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        const user = { email: data.email };
+        axios.put('http://localhost:6010/user/admin', user)
+            .then(res => {
+                alert('Made an admin sucessfully');
+            })
+    };
     return (
         <>
             <Sidebar></Sidebar>
@@ -27,18 +34,10 @@ const ManageAdmin = () => {
                 <CardBody>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <h6 className="text-purple-500 text-sm mt-3 mb-6 font-light uppercase">
-                            Property Details
+                            Make Admin
                         </h6>
                         <div className="flex flex-wrap mt-10">
-                            <div className="w-full lg:w-6/12 pr-4 mb-10 font-light">
-                                <input
-                                    type="text"
-                                    color="purple"
-                                    className="w-full lg:w-12/12 mb-10 font-light border-2 py-2 px-2 rounded shadow-xs"
-                                    placeholder=" Name"
-                                    {...register("name", { required: true })}
-                                />
-                            </div>
+
                             <div className="w-full lg:w-6/12  mb-10 font-light">
                                 <input
                                     type="email"
@@ -48,27 +47,11 @@ const ManageAdmin = () => {
                                     {...register("email", { required: true })}
                                 />
                             </div>
-                            <div className="w-full lg:w-6/12 pr-4 mb-10 font-light">
-                                <input
-                                    type="password"
-                                    color="purple"
-                                    className="w-full lg:w-12/12 mb-10 font-light border-2 py-2 px-2 rounded shadow-xs"
-                                    placeholder="Password"
-                                    {...register("password", { required: true })}
-                                />
-                            </div>
-                            <div className="w-full lg:w-6/12  mb-10 font-light">
-                                <input
-                                    className="w-full lg:w-12/12 mb-10 font-light border-2 py-2 px-2 rounded shadow-xs"
-                                    type="text"
-                                    color="purple"
-                                    placeholder="Image link"
-                                    {...register("image", { required: true })}
-                                />
-                            </div>
+
+
 
                             <div className="w-full lg:w-12/12 mb-10 font-light">
-                                <button type="submit" className="bg-blue-400 px-5 py-2 text-white font-bold rounded">Add Admin</button>
+                                <button type="submit" className="bg-blue-400 px-5 py-2 text-white font-bold rounded">Make Admin</button>
                             </div>
                         </div>
 

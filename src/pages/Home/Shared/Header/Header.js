@@ -1,9 +1,22 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../../Hooks/useAuth';
 import logo from '../../../../images/logo.png';
 
 const Header = () => {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
+    const { user, handleLogout, isLoading } = useAuth();
+    const [admin, setAdmin] = useState();
+    if (isLoading) {
+        return '';
+    }
+    if (user) {
+        axios.get(`http://localhost:6010/users/${user?.email}`)
+            .then(res => {
+                setAdmin(res.data.admin);
+            })
+    }
     return (
 
         <>
@@ -64,22 +77,54 @@ const Header = () => {
                                     Contact
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <Link to="/login"
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                                    href="#pablo"
-                                >
-                                    Login
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <span
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-red-600 hover:opacity-75"
-                                    href="#pablo"
-                                >
-                                    Robin welknslgdosjdfoi sdfnosdfo
-                                </span>
-                            </li>
+                            {
+                                admin === true ? <li className="nav-item">
+                                    <Link to="/admin"
+                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                        href="#pablo"
+                                    >
+                                        Dashboard
+                                    </Link>
+                                </li> :
+                                    <li className="nav-item">
+                                        <Link to="/profile"
+                                            className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                            href="#pablo"
+                                        >
+                                            Profile
+                                        </Link>
+                                    </li>
+                            }
+                            {
+                                user?.email ?
+                                    <li className="nav-item">
+                                        <Link to="/login"
+                                            className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-red-600 hover:opacity-75"
+                                            href="#pablo" onClick={handleLogout}
+                                        >
+                                            Logout
+                                        </Link>
+                                    </li> :
+                                    <li className="nav-item">
+                                        <Link to="/login"
+                                            className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                            href="#pablo"
+                                        >
+                                            Login
+                                        </Link>
+                                    </li>
+
+                            }
+                            {
+                                user ? <li className="nav-item">
+                                    <span
+                                        className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-red-600 hover:opacity-75"
+                                        href="#pablo"
+                                    >
+                                        {user.displayName}
+                                    </span>
+                                </li> : ''
+                            }
                         </ul>
                     </div>
                 </div>
