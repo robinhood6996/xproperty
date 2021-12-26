@@ -2,7 +2,7 @@
 
 
 This is a Property sale website website. It provides service all over the world. Any one can view details of apartments which are listed for sale. anyone can leave a query about any apartment after creating an account. User can track his Query status from profile My Orders. Admin can update and delete his query.After submitting query one of out agent will contact with user as soon as possible.
- 
+# Live Site: https://xproperty-b4d34.web.app/
 ## FONTEND TECHNOLOGY
 - React.js
 - Tailwind Css
