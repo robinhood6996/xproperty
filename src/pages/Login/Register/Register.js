@@ -40,9 +40,9 @@ const Register = () => {
     }
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto bg-gray-300 rounded-xl shadow-xl p-4 mb-10 mt-10 w-8/12">
             <div className="login-form mt-5">
-                <h2 className='text-3xl font-bold text-blue-400 mb-3 text-center'>Register</h2>
+                <h1 className='text-5xl font-bold text-gray-900 mb-3 text-center'>Register</h1>
                 <form onSubmit={onSubmit} className="sm:w-ful lg:w-2/5 container mx-auto">
                     <div className="input-group p-2">
                         <input type="text" name="name" className="w-full border p-2 bg-gray-200 rounded-lg shadow-md" placeholder="Enter Your Name" onChange={handleName} />
@@ -59,7 +59,7 @@ const Register = () => {
                     </div>
                     <p className="p-2">Already Registered? Please <Link to="/login" className="text-red-500"> Login</Link></p>
                     <div className="input-group p-2 text-center">
-                        <button type="submit" className="bg-blue-400 text-gray-50 font-medium px-10 py-3 rounded">Register</button>
+                        <button type="submit" className="bg-gray-900 text-gray-50 font-medium px-10 py-3 rounded">Register</button>
                     </div>
 
                 </form>

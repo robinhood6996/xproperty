@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import '@material-tailwind/react/tailwind.css';
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Poppins:wght@200;300;400;600;800&display=swap');
 
 body {
   margin: 0;
@@ -10,6 +11,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+p{
+  font-family: 'Poppins', sans-serif;
+}
+h1{
+  font-family: 'Old Standard TT', serif;
 }
 
 code {
